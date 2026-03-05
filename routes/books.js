@@ -14,7 +14,11 @@ router.post("/", (req, res) => {
       throw new Error("Invalid author_id");
 
     // Hard-coded because they are fixed
-    if (![1, 2, 3].includes(req.body.genre_id))
+    if (
+      req.body.genre_id != 1 &&
+      req.body.genre_id != 2 &&
+      req.body.genre_id != 3
+    )
       throw new Error("Invalid genre_id");
 
     const { lastInsertRowid } = db.books.create.run({
@@ -71,7 +75,11 @@ router.put("/:id", (req, res) => {
       throw new Error("Invalid author_id");
 
     // Hard-coded because they are fixed
-    if (![1, 2, 3].includes(req.body.genre_id))
+    if (
+      req.body.genre_id != 1 &&
+      req.body.genre_id != 2 &&
+      req.body.genre_id != 3
+    )
       throw new Error("Invalid genre_id");
 
     const updates = {
